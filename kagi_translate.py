@@ -232,7 +232,7 @@ def _print_dictionary_field(field: str, value: object, header: bool = False) -> 
             print(f"- {related.get('word', '?')} ({related.get('relationship', '?')})")
         return
     if isinstance(value, str):
-        print(f"\n## {field}\n\n{value}")
+        print(f"\n## {field.replace('_', ' ')}\n\n{value}")
 
 
 # website
