@@ -55,3 +55,6 @@ docs/
 # CUSTOM
 
 .now
+.zcode/
+__pycache__/
+*.egg-info/
