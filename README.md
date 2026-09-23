@@ -2,14 +2,31 @@
 
 API client for [Kagi Translate](https://translate.kagi.com): translate text, detect languages, look up dictionary entries, and translate the text of web pages — as Markdown or JSON, using your own Kagi session.
 
+Two like-for-like clients live here — same commands, options, outputs and endpoints:
+
+- `kagi_translate.py` — Python (stdlib-only), managed with [uv](https://docs.astral.sh/uv/)
+- `kagi_translate.ts` — Deno (Deno std only)
+
 ## Install
 
 ```sh
-pip install .
-# or run directly: python3 kagi_translate.py ...
+# python client — install the kagi-translate command globally
+uv tool install .
+# or run it inside the project environment
+uv sync
+uv run kagi-translate credits
+# or run the module directly
+uv run kagi_translate.py credits
+
+# deno client — run directly
+deno run --allow-env --allow-net kagi_translate.ts credits
+# or install the kagi-translate command globally
+deno install --global --allow-env --allow-net --name kagi-translate kagi_translate.ts
 ```
 
 ## Usage
+
+The commands below are identical for both clients (substitute `uv run kagi-translate` / `deno run --allow-env --allow-net kagi_translate.ts` if you did not install the command):
 
 ```sh
 # usage/credit state (no auth needed)

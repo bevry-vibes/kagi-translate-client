@@ -8,10 +8,11 @@ this process is documented in the upstream repo's [local tweaks pattern](https:/
 - https://github.com/bevry-vibes/skills/blob/main/policy.md — **applies.** Bevry's AI policy, mandating which AIs are permitted
 - https://github.com/bevry-vibes/skills/blob/main/commits.md — **applies.** Commit hygiene: Conventional Commits, author vs co-author identity, verification
 - https://github.com/bevry-vibes/skills/blob/main/plans.md — **applies.** Cross-harness plan conventions: plans and provenance companions in `.plans/`
+- https://github.com/bevry-vibes/skills/blob/main/python.md — **applies.** All Python setup and execution through uv; stdlib first, a dependency only when the stdlib cannot do the job
 - https://github.com/bevry-vibes/skills/blob/main/minimax.md — **applies** when the running agent is a MiniMax M3 model (its rules gate themselves on model and harness)
 
 ## Project
 
-`kagi_translate.py` is a stdlib-only Python client + CLI for Kagi Translate's web endpoints (see the README's endpoint table). Keep it dependency-free. Kagi Translate has no public API; the endpoints are the web app's own and can change — the README documents the discovery date.
+`kagi_translate.py` (Python, stdlib-only) and `kagi_translate.ts` (Deno, Deno std only) are like-for-like clients + CLIs for Kagi Translate's web endpoints (see the README's endpoint table) — keep them behaviourally identical and dependency-free beyond their standard libraries. Python setup runs through uv only (`uv sync` / `uv run` / `uv tool install`; `uv.lock` and `.python-version` are committed). Kagi Translate has no public API; the endpoints are the web app's own and can change — the README documents the discovery date.
 
 The session cookie is read from `KAGI_SESSION` only and must never be committed — `.env` is gitignored; check `git grep` before committing anything that touched credentials. Never commit captured tokens, JWTs, cookies, or browser traffic logs.
