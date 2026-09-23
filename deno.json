@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "@std/streams": "jsr:@std/streams@^1"
+  },
+  "tasks": {
+    "kagi-translate": "deno run --allow-env --allow-net kagi_translate.ts"
+  }
+}
