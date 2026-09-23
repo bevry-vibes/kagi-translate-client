@@ -56,5 +56,6 @@ docs/
 
 .now
 .zcode/
+.venv/
 __pycache__/
 *.egg-info/
